@@ -6,48 +6,10 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.7.8/angular.min.js"></script>
     <script src="https://code.angularjs.org/1.7.8/angular-route.min.js"></script>
+    <script src="routingmodule.js"></script>
     <script>
     
-    var app = angular.module('app', ['ngRoute']);
-    app.config(function ($routeProvider) {
-
-        // configure the routes
-        $routeProvider
-            .when('/', {
-            // route for the home page
-            templateUrl: 'PageViews/home.html',
-            controller: 'homeController'
-            })
-            .when('/about', {
-            // route for the about page
-            templateUrl: 'PageViews/about.html',
-            controller: 'aboutController'
-            })
-            .when('/contact', {
-            // route for the contact page
-            templateUrl: 'PageViews/contact.html',
-            controller: 'contactController'
-            })
-            .otherwise({
-            // when all else fails
-            templateUrl: 'PageViews/routeNotFound.html',
-            controller: 'notFoundController'
-            });
-    });
-
-    app.controller('homeController', function ($scope) {
-        $scope.message = 'Welcome to my home page! I don\'t even like it';
-    });
-    app.controller('aboutController', function ($scope) {
-        $scope.message = 'Find out more about me.';
-    });
-    app.controller('contactController', function ($scope) {
-        $scope.message = 'Contact us!';
-    });
-    app.controller('notFoundController', function ($scope) {
-        $scope.message = 'There seems to be a problem finding the page you wanted';
-    });
-
+    
     </script>
 </head>
 
