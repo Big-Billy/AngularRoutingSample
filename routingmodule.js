@@ -18,6 +18,11 @@ var app = angular.module('app', ['ngRoute']);
             templateUrl: 'PageViews/contact.html',
             controller: 'contactController'
             })
+            .when('/contact/:subject', {
+            // route to contact page with subject param
+            templateUrl: 'pageViews/contact.html',
+            controller: 'contactController'
+            })
             .otherwise({
             // when all else fails
             templateUrl: 'PageViews/routeNotFound.html',
@@ -31,7 +36,14 @@ var app = angular.module('app', ['ngRoute']);
     app.controller('aboutController', function ($scope) {
         $scope.message = 'Find out more about me.';
     });
-    app.controller('contactController', function ($scope) {
+    app.controller('contactController', function ($scope, $routeParams) {
+        var subject = '';
+        if ($routeParams ['subject'] == "learn") {
+            subject = 'I want to learn more about your services';
+        } else if ($routeParams ['subject'] == "quote") {
+            subject = 'I would like to get a free quote';
+        }
+        $scope.subject = subject;
         $scope.message = 'Contact us!';
     });
     app.controller('notFoundController', function ($scope) {
